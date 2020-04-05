@@ -1,13 +1,25 @@
 import React from "react";
 import { CssBaseline } from "@material-ui/core";
-import { TodoItem } from "./components/TodoItem/TodoItem";
+
+import { OnGoingTodoList } from "./components/OnGoingTodoList/OnGoingTodoList";
+
+const todos: TTodo[] = [
+  {
+    text: "Write an app",
+    complete: false,
+  },
+  {
+    text: "Push up",
+    complete: true,
+  },
+];
 
 function App() {
   return (
     <>
       <CssBaseline />
       <h1>Todolist</h1>
-      <TodoItem />
+      <OnGoingTodoList todos={todos} />
     </>
   );
 }

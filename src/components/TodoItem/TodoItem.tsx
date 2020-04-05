@@ -1,12 +1,16 @@
 import React from "react";
 import { ListItem, Radio, Typography } from "@material-ui/core";
 
-export const TodoItem = () => {
+interface IProps {
+  todo: TTodo;
+}
+
+export const TodoItem: React.FC<IProps> = ({ todo }) => {
   return (
     <ListItem divider>
-      <Radio />
+      <Radio checked={todo.complete} />
       <Typography variant="body1" component="span">
-        Task text
+        {todo.text}
       </Typography>
     </ListItem>
   );
