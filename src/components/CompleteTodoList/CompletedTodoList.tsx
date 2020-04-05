@@ -17,7 +17,7 @@ export const CompletedTodoList: React.FC<IProps> = ({ todos }) => {
   return (
     <ExpansionPanel>
       <ExpansionPanelSummary>
-        <Typography variant="subtitle1">Completed</Typography>
+        <Typography variant="subtitle1">Completed ({todos.length})</Typography>
       </ExpansionPanelSummary>
       <List>
         {todos.map((todo) => (

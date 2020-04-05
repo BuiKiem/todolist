@@ -10,18 +10,28 @@ const todos: TTodo[] = [
     complete: false,
   },
   {
+    text: "Write an app 2",
+    complete: false,
+  },
+  {
     text: "Push up",
+    complete: true,
+  },
+  {
+    text: "Push up 2",
     complete: true,
   },
 ];
 
 function App() {
+  const onGoingTodos = todos.filter((todo) => !todo.complete);
+  const completedTodos = todos.filter((todo) => todo.complete);
   return (
     <>
       <CssBaseline />
       <h1>Todolist</h1>
-      <OnGoingTodoList todos={todos} />
-      <CompletedTodoList todos={todos} />
+      <OnGoingTodoList todos={onGoingTodos} />
+      <CompletedTodoList todos={completedTodos} />
     </>
   );
 }
