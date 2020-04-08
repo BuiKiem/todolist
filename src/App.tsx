@@ -3,6 +3,7 @@ import { CssBaseline, StylesProvider } from "@material-ui/core";
 
 import { OnGoingTodoList } from "./components/OnGoingTodoList/OnGoingTodoList";
 import { CompletedTodoList } from "./components/CompleteTodoList/CompletedTodoList";
+import { AppBar } from "./components/AppBar/AppBar";
 
 const todos: TTodo[] = [
   {
@@ -32,6 +33,7 @@ function App() {
       <h1>Todolist</h1>
       <OnGoingTodoList todos={onGoingTodos} />
       <CompletedTodoList todos={completedTodos} />
+      <AppBar />
     </StylesProvider>
   );
 }
