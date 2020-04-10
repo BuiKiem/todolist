@@ -15,18 +15,18 @@ import {
   EventAvailable as EventAvailableIcon,
 } from "@material-ui/icons";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 
-type FormData = {
-  text: string;
-};
+import { addTask } from "../../reducers/todos";
 
 export const AddTaskForm: React.FC<AddTaskFormProps> = ({ open, onClose }) => {
-  const { register, handleSubmit, errors } = useForm<FormData>({
+  const dispatch = useDispatch();
+  const { register, handleSubmit, errors } = useForm<AddTaskFormData>({
     mode: "onSubmit",
   });
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data);
+    dispatch(addTask(data));
   });
 
   return (

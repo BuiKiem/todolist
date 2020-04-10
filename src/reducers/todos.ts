@@ -6,13 +6,13 @@ const todosSlice = createSlice({
   name: "todos",
   initialState,
   reducers: {
-    addTodo: (state, action: PayloadAction<TTodo>) => {
+    addTask: (state, action: PayloadAction<AddTaskFormData>) => {
       const { text } = action.payload;
       state.push({ text, complete: false });
     },
   },
 });
 
-export const { addTodo } = todosSlice.actions;
+export const { addTask } = todosSlice.actions;
 
 export default todosSlice.reducer;

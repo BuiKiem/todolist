@@ -7,3 +7,7 @@ type AddTaskFormProps = {
   open: boolean;
   onClose: () => void;
 };
+
+type AddTaskFormData = {
+  text: string;
+};
