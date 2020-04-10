@@ -1,30 +1,14 @@
 import React from "react";
 import { CssBaseline, StylesProvider } from "@material-ui/core";
+import { useSelector } from "react-redux";
 
 import { OnGoingTodoList } from "./components/OnGoingTodoList/OnGoingTodoList";
 import { CompletedTodoList } from "./components/CompleteTodoList/CompletedTodoList";
 import { AppBar } from "./components/AppBar/AppBar";
-
-const todos: TTodo[] = [
-  {
-    text: "Write an app",
-    complete: false,
-  },
-  {
-    text: "Write an app 2",
-    complete: false,
-  },
-  {
-    text: "Push up",
-    complete: true,
-  },
-  {
-    text: "Push up 2",
-    complete: true,
-  },
-];
+import { RootState } from "./reducers";
 
 function App() {
+  const todos = useSelector((state: RootState) => state.todos);
   const onGoingTodos = todos.filter((todo) => !todo.complete);
   const completedTodos = todos.filter((todo) => todo.complete);
   return (
