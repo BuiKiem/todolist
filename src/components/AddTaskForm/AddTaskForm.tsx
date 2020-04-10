@@ -14,8 +14,21 @@ import {
   Subject as SubjectIcon,
   EventAvailable as EventAvailableIcon,
 } from "@material-ui/icons";
+import { useForm } from "react-hook-form";
+
+type FormData = {
+  text: string;
+};
 
 export const AddTaskForm: React.FC<AddTaskFormProps> = ({ open, onClose }) => {
+  const { register, handleSubmit, errors } = useForm<FormData>({
+    mode: "onSubmit",
+  });
+
+  const onSubmit = handleSubmit((data) => {
+    console.log(data);
+  });
+
   return (
     <Modal
       open={open}
@@ -28,9 +41,16 @@ export const AddTaskForm: React.FC<AddTaskFormProps> = ({ open, onClose }) => {
     >
       <Fade in={open}>
         <Card className="absolute top-auto bottom-0 w-full">
-          <form>
+          <form onSubmit={onSubmit}>
             <CardContent>
-              <InputBase autoFocus fullWidth placeholder="New task" />
+              <InputBase
+                name="text"
+                autoFocus
+                fullWidth
+                error={!!errors.text}
+                placeholder="New task"
+                inputRef={register({ required: true })}
+              />
             </CardContent>
             <CardActions>
               <IconButton edge="start" color="primary">
@@ -40,7 +60,11 @@ export const AddTaskForm: React.FC<AddTaskFormProps> = ({ open, onClose }) => {
                 <EventAvailableIcon />
               </IconButton>
               <div className="flex-grow" />
-              <Button color="primary" className="font-bold capitalize">
+              <Button
+                type="submit"
+                color="primary"
+                className="font-bold capitalize"
+              >
                 save
               </Button>
             </CardActions>

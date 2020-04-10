@@ -4,7 +4,6 @@ import { TodoItem } from "../TodoItem/TodoItem";
 import {
   ExpansionPanel,
   ExpansionPanelSummary,
-  ExpansionPanelDetails,
   List,
   Typography,
 } from "@material-ui/core";
