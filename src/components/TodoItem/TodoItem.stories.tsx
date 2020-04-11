@@ -1,4 +1,5 @@
 import React from "react";
+import { action } from "@storybook/addon-actions";
 
 import { TodoItem } from "./TodoItem";
 
@@ -13,8 +14,14 @@ export const todoData: TTodo = {
   complete: false,
 };
 
-export const OnGoing = () => <TodoItem todo={{ ...todoData }} />;
+export const actionData = {
+  toggleTask: action("TOGGLE_TASK"),
+};
+
+export const OnGoing = () => (
+  <TodoItem todo={{ ...todoData }} {...actionData} />
+);
 
 export const Completed = () => (
-  <TodoItem todo={{ ...todoData, complete: true }} />
+  <TodoItem todo={{ ...todoData, complete: true }} {...actionData} />
 );
