@@ -11,7 +11,7 @@ import rootReducer from "./reducers";
 
 import * as serviceWorker from "./serviceWorker";
 
-const store = configureStore({
+export const store = configureStore({
   reducer: rootReducer,
 });
 

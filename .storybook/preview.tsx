@@ -1,12 +1,19 @@
 import React from "react";
 import {addDecorator} from "@storybook/react";
+import {CssBaseline, StylesProvider} from "@material-ui/core";
+import {Provider} from "react-redux";
 
 import "../src/styles.css";
-import {CssBaseline, StylesProvider} from "@material-ui/core";
+
+import {store} from "../src";
 
 addDecorator(storyFn => (
-  <StylesProvider injectFirst>
-    <CssBaseline />
-    {storyFn()}
-  </StylesProvider>
+  <React.StrictMode>
+    <Provider store={store}>
+      <StylesProvider injectFirst>
+        <CssBaseline />
+        {storyFn()}
+      </StylesProvider>
+    </Provider>
+  </React.StrictMode>
 ));
