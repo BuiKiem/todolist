@@ -1,5 +1,4 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 import {
   ExpansionPanel,
   ExpansionPanelSummary,
@@ -13,7 +12,6 @@ import {
 
 import { TodoItem } from "../TodoItem/TodoItem";
 
-import { toggleTodo } from "../../reducers/todos";
 import { Notification } from "./Notification";
 
 interface IProps {
@@ -21,8 +19,6 @@ interface IProps {
 }
 
 export const TodoList: React.FC<IProps> = ({ todos }) => {
-  const dispatch = useDispatch();
-
   const onGoingTodos = todos.filter((todo) => !todo.complete);
   const completedTodos = todos.filter((todo) => todo.complete);
 
@@ -30,11 +26,7 @@ export const TodoList: React.FC<IProps> = ({ todos }) => {
     <>
       <List>
         {onGoingTodos.map((todo) => (
-          <TodoItem
-            key={todo.text}
-            todo={todo}
-            toggleTodo={() => dispatch(toggleTodo(todo.text))}
-          />
+          <TodoItem key={todo.text} todo={todo} />
         ))}
       </List>
       {completedTodos.length > 0 && (
@@ -46,11 +38,7 @@ export const TodoList: React.FC<IProps> = ({ todos }) => {
           </ExpansionPanelSummary>
           <List>
             {completedTodos.map((todo) => (
-              <TodoItem
-                key={todo.text}
-                todo={todo}
-                toggleTodo={() => dispatch(toggleTodo(todo.text))}
-              />
+              <TodoItem key={todo.text} todo={todo} />
             ))}
           </List>
         </ExpansionPanel>
@@ -77,11 +65,7 @@ export const TodoList: React.FC<IProps> = ({ todos }) => {
               </ExpansionPanelSummary>
               <List>
                 {completedTodos.map((todo) => (
-                  <TodoItem
-                    key={todo.text}
-                    todo={todo}
-                    toggleTodo={() => dispatch(toggleTodo(todo.text))}
-                  />
+                  <TodoItem key={todo.text} todo={todo} />
                 ))}
               </List>
             </ExpansionPanel>
