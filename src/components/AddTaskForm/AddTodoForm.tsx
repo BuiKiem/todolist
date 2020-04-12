@@ -19,7 +19,7 @@ import { useDispatch } from "react-redux";
 
 import { addTodo } from "../../reducers/todos";
 
-export const AddTaskForm: React.FC<AddTaskFormProps> = ({ open, onClose }) => {
+export const AddTodoForm: React.FC<AddTodoFormProps> = ({ open, onClose }) => {
   const dispatch = useDispatch();
   const { register, handleSubmit, errors } = useForm<AddTaskFormData>({
     mode: "onSubmit",
@@ -48,7 +48,7 @@ export const AddTaskForm: React.FC<AddTaskFormProps> = ({ open, onClose }) => {
                 autoFocus
                 fullWidth
                 error={!!errors.text}
-                placeholder="New task"
+                placeholder="New todo"
                 inputRef={register({ required: true })}
               />
             </CardContent>

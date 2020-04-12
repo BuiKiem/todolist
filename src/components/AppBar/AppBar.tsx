@@ -11,7 +11,7 @@ import {
   MoreVert as MoreVertIcon,
 } from "@material-ui/icons";
 
-import { AddTaskForm } from "../AddTaskForm/AddTaskForm";
+import { AddTodoForm } from "../AddTaskForm/AddTodoForm";
 import { useModal } from "../../hooks";
 
 export const AppBar: React.FC = () => {
@@ -23,7 +23,7 @@ export const AppBar: React.FC = () => {
 
   return (
     <MuiAppBar position="fixed" className="top-auto bottom-0">
-      <AddTaskForm open={openAddTaskForm} onClose={onCloseShowAddTaskForm} />
+      <AddTodoForm open={openAddTaskForm} onClose={onCloseShowAddTaskForm} />
       <Toolbar>
         <IconButton edge="start" color="inherit">
           <MenuIcon />

@@ -3,7 +3,7 @@ type TTodo = {
   complete: boolean;
 };
 
-type AddTaskFormProps = {
+type AddTodoFormProps = {
   open: boolean;
   onClose: () => void;
 };
