@@ -2,7 +2,12 @@ import React from "react";
 import { useDispatch } from "react-redux";
 
 import { TodoItem } from "../TodoItem/TodoItem";
-import { List } from "@material-ui/core";
+import {
+  ExpansionPanel,
+  ExpansionPanelSummary,
+  List,
+  Typography,
+} from "@material-ui/core";
 
 import { toggleTask } from "../../reducers/todos";
 
@@ -12,15 +17,40 @@ interface IProps {
 
 export const OnGoingTodoList: React.FC<IProps> = ({ todos }) => {
   const dispatch = useDispatch();
+
+  const onGoingTodos = todos.filter((todo) => !todo.complete);
+  const completedTodos = todos.filter((todo) => todo.complete);
+
   return (
-    <List>
-      {todos.map((todo) => (
-        <TodoItem
-          key={todo.text}
-          todo={todo}
-          toggleTask={() => dispatch(toggleTask(todo.text))}
-        />
-      ))}
-    </List>
+    <div>
+      <List>
+        {onGoingTodos.map((todo) => (
+          <TodoItem
+            key={todo.text}
+            todo={todo}
+            toggleTask={() => dispatch(toggleTask(todo.text))}
+          />
+        ))}
+      </List>
+
+      {completedTodos.length > 0 && (
+        <ExpansionPanel>
+          <ExpansionPanelSummary>
+            <Typography variant="subtitle1">
+              Completed ({completedTodos.length})
+            </Typography>
+          </ExpansionPanelSummary>
+          <List>
+            {completedTodos.map((todo) => (
+              <TodoItem
+                key={todo.text}
+                todo={todo}
+                toggleTask={() => dispatch(toggleTask(todo.text))}
+              />
+            ))}
+          </List>
+        </ExpansionPanel>
+      )}
+    </div>
   );
 };
