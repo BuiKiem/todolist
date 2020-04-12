@@ -15,7 +15,7 @@ export const todoData: TTodo = {
 };
 
 export const actionData = {
-  toggleTask: action("TOGGLE_TASK"),
+  toggleTodo: action("TOGGLE_TODO"),
 };
 
 export const OnGoing = () => (

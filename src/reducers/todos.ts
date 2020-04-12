@@ -6,11 +6,11 @@ const todosSlice = createSlice({
   name: "todos",
   initialState,
   reducers: {
-    addTask: (state, action: PayloadAction<AddTaskFormData>) => {
+    addTodo: (state, action: PayloadAction<AddTaskFormData>) => {
       const { text } = action.payload;
       state.push({ text, complete: false });
     },
-    toggleTask: (state, action: PayloadAction<string>) => {
+    toggleTodo: (state, action: PayloadAction<string>) => {
       const todo = state.find((todo) => todo.text === action.payload);
       if (todo) {
         todo.complete = !todo.complete;
@@ -19,6 +19,6 @@ const todosSlice = createSlice({
   },
 });
 
-export const { addTask, toggleTask } = todosSlice.actions;
+export const { addTodo, toggleTodo } = todosSlice.actions;
 
 export default todosSlice.reducer;

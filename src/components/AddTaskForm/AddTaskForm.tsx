@@ -17,7 +17,7 @@ import {
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 
-import { addTask } from "../../reducers/todos";
+import { addTodo } from "../../reducers/todos";
 
 export const AddTaskForm: React.FC<AddTaskFormProps> = ({ open, onClose }) => {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ export const AddTaskForm: React.FC<AddTaskFormProps> = ({ open, onClose }) => {
   });
 
   const onSubmit = handleSubmit((data) => {
-    dispatch(addTask(data));
+    dispatch(addTodo(data));
   });
 
   return (

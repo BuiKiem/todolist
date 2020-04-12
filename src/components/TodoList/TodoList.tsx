@@ -9,7 +9,7 @@ import {
   Typography,
 } from "@material-ui/core";
 
-import { toggleTask } from "../../reducers/todos";
+import { toggleTodo } from "../../reducers/todos";
 
 interface IProps {
   todos: TTodo[];
@@ -28,7 +28,7 @@ export const TodoList: React.FC<IProps> = ({ todos }) => {
           <TodoItem
             key={todo.text}
             todo={todo}
-            toggleTask={() => dispatch(toggleTask(todo.text))}
+            toggleTodo={() => dispatch(toggleTodo(todo.text))}
           />
         ))}
       </List>
@@ -45,7 +45,7 @@ export const TodoList: React.FC<IProps> = ({ todos }) => {
               <TodoItem
                 key={todo.text}
                 todo={todo}
-                toggleTask={() => dispatch(toggleTask(todo.text))}
+                toggleTodo={() => dispatch(toggleTodo(todo.text))}
               />
             ))}
           </List>
