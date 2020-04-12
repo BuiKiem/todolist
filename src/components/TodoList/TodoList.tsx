@@ -15,7 +15,7 @@ interface IProps {
   todos: TTodo[];
 }
 
-export const OnGoingTodoList: React.FC<IProps> = ({ todos }) => {
+export const TodoList: React.FC<IProps> = ({ todos }) => {
   const dispatch = useDispatch();
 
   const onGoingTodos = todos.filter((todo) => !todo.complete);

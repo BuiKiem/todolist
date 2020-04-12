@@ -1,10 +1,10 @@
 import React from "react";
 
-import { OnGoingTodoList } from "./OnGoingTodoList";
+import { TodoList } from "./TodoList";
 
 export default {
-  component: OnGoingTodoList,
-  title: "OnGoingTodoList",
+  component: TodoList,
+  title: "TodoList",
   excludeStories: /.*Data$/,
 };
 
@@ -15,12 +15,16 @@ export const TodosData: TTodo[] = [
   },
   {
     text: "Task 2",
-    complete: false,
+    complete: true,
   },
   {
     text: "Task 3",
     complete: false,
   },
+  {
+    text: "Task 4",
+    complete: true,
+  },
 ];
 
-export const Default = () => <OnGoingTodoList todos={TodosData} />;
+export const Default = () => <TodoList todos={TodosData} />;
